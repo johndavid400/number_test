@@ -11,11 +11,19 @@ class Compute
   end
 
   def warn_of_failure
-    print "The number you entered is not a perfect square, please try again."
+    puts "The number you entered is not a perfect square, please try again."
   end
 
   def print_result
-    puts @input.to_i
+    result = (1..@input).to_a
+    row = Math.sqrt(@input).to_i
+    result.each do |n|
+      print n
+      print " "
+      if (n.to_f / row) == (n / row)
+        print "\n"
+      end
+    end
   end
 
 end
